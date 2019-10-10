@@ -96,6 +96,4 @@ plt.ylim(y_min, y_max)
 plt.xticks(())
 plt.yticks(())
 plt.show()
-print(metrics.normalized_mutual_info_score(labels_true, labels_pred))
-print(metrics.homogeneity_score(labels_true, labels_pred))
-print(metrics.completeness_score(labels_true, labels_pred))
+
