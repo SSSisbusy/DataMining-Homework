@@ -1,19 +1,18 @@
-##<center>第一次作业
-                                                    石绍松 201944762
-
-###实验要求
+第一次作业
+                                                石绍松 201944762
+实验要求
 对所给的两个数据集，分别使用八种聚类算法对数据进行训练，将训练前后的数据进行对比，使用Normalized Mutual Information、Homogeneity以及Completeness观察各个算法的聚类效果。
 
-###实验环境
+实验环境
 编程语言：python3.7
 IDE：pycharm
 实验机器：I5-3470
 
-###实验数据
+实验数据
 1、sklearn.datasets.load_digits 包含10个类，每个类包含180个例子共1797个，维度为64，特征为0-16之间的整数。
 2、sklearn.datasets.fetch_20newsgroups 包含20个类，共18846个例子，特征为文本片段。
 
-###实验过程以及实验结果
+实验过程以及实验结果
 1、K-MEANS
 (A)获取数据集得到标签，使用k-means算法对数据集进行训练，使用评估函数比较训练前后得到的结果。训练时设置的参数为n_clusters =n_digits，n_init = 10,所得结果为：
 Homogeneity: 0.602
