@@ -17,15 +17,22 @@ IDE：pycharm
 实验数据
 --------
 1、sklearn.datasets.load_digits 包含10个类，每个类包含180个例子共1797个，维度为64，特征为0-16之间的整数。
+
 2、sklearn.datasets.fetch_20newsgroups 包含20个类，共18846个例子，特征为文本片段。
 
 实验过程以及实验结果
 ---------
 1、K-MEANS
-(A)获取数据集得到标签，使用k-means算法对数据集进行训练，使用评估函数比较训练前后得到的结果。训练时设置的参数为n_clusters =n_digits，n_init = 10,所得结果为：
+(A)获取数据集得到标签，使用k-means算法对数据集进行训练，使用评估函数比较训练前后得到的结果。
+
+训练时设置的参数为n_clusters =n_digits，n_init = 10,所得结果为：
+
 Homogeneity: 0.602
+
 Normalized Mutual Information: 0.626
+
 Completeness: 0.650
+
 (B)将数据集中加载四个类别，分别为categories = ['alt.atheism','talk.religion.misc','comp.graphics','sci.space',]，将数据集降维后，使用K-Means进行训练，部分参数设置为n_clusters=true_k, init='k-means++', n_init=1,所得结果为
 Homogeneity: 0.485
 Normalized Mutual Information: 0.498
