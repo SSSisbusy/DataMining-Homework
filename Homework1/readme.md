@@ -24,7 +24,8 @@ IDE：pycharm
 
 实验过程以及实验结果
 ---------
-1、K-MEANS  
+**1、K-MEANS**  
+
 (A)获取数据集得到标签，使用k-means算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
 训练时设置的参数为n_clusters =n_digits，n_init = 10,所得结果为：  
@@ -44,7 +45,7 @@ Normalized Mutual Information: 0.498
 Completeness: 0.511  
 
  
-2、Affinity Propagation  
+**2、Affinity Propagation**  
 
 (A)获取数据集得到标签，使用Affinity Propagation算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
@@ -65,8 +66,7 @@ Completeness: 0.191
 
 Normalized Mutual Information: 0.411  
 
-
-3、Mean-shift    
+**3、Mean-shift**    
 
 (A)获取数据集得到标签，使用Mean-shift算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
@@ -90,7 +90,7 @@ Completeness: 0.786
 Normalized Mutual Information: 0.554  
 
 
-4、Spectral clustering   
+**4、Spectral clustering**   
 
 (A)获取数据集得到标签，使用Mean-shift算法对数据集进行训练，使用评估函数比较训练前后得到的结果。
 
@@ -111,7 +111,7 @@ Completeness: 0.303
 Normalized Mutual Information: 0.373  
 
 
-5、Ward hierarchical clustering  
+**5、Ward hierarchical clustering**  
 
 (A)获取数据集得到标签，使用Ward hierarchical clustering算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
@@ -134,7 +134,7 @@ Completeness: 0.303
 
 Normalized Mutual Information: 0.373 
 
-6、Agglomerative clustering  
+**6、Agglomerative clustering**  
 
 (A)获取数据集得到标签，使用AgglomerativeClustering算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
@@ -158,7 +158,7 @@ Completeness: 0.303
 
 Normalized Mutual Information: 0.373  
 
-7、DBSCAN 
+**7、DBSCAN** 
 
 (A)获取数据集得到标签，使用DBSCAN算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
@@ -180,7 +180,7 @@ Completeness: 0.176
 NMI: 0.090  
 
 
-8、Gaussian mixtures  
+**8、Gaussian mixtures**  
 
 (A)获取数据集得到标签，使用DBSCAN算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
