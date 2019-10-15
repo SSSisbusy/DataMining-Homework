@@ -24,6 +24,23 @@ IDE：pycharm
 
 实验过程以及实验结果
 ---------
+首先将结果进行整理，得下表所示，接着按照各个算法展示参数设计。
+<com.smartown.tableview.library.TableView
+    android:id="@+id/table"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_margin="8dp"
+    app:dividerColor="#e1e1e1"
+    app:dividerWidth="1px"
+    app:headerColor="#00ffffff"
+    app:headerTextColor="#111111"
+    app:headerTextSize="10dp"
+    app:rowHeight="36dp"
+    app:textColor="#999999"
+    app:textSize="10dp"
+    app:unitColumnWidth="0dp" />
+
 **1、K-MEANS**  
 
 (A)获取数据集得到标签，使用k-means算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
