@@ -26,27 +26,27 @@ IDE：pycharm
 ---------
 首先将结果进行整理，得下表所示，接着按照各个算法展示参数设计。
 
-算法  |Homogeneity  | Completeness  | NMI
+数据集一  |Homogeneity  | Completeness  | NMI
 ---- |---- | ----- | ------ 
-K-MEANS  |0.602  | 0.626 | 0.650 
-Affinity Propagation  | 0.964  | 0.640 | 0.425  
-Mean-shift  |单元格内容  | 单元格内容 | 单元格内容 
-Spectral clustering  |单元格内容  | 单元格内容 | 单元格内容 
-Ward hierarchical clustering  |单元格内容  | 单元格内容 | 单元格内容 
-Agglomerative clustering  |单元格内容  | 单元格内容 | 单元格内容 
-DBSCAN  |单元格内容  | 单元格内容 | 单元格内容 
-DBSCAN  |单元格内容  | 单元格内容 | 单元格内容   
+K-MEANS  |0.602  | 0.650 | 0.626 
+Affinity Propagation  | 0.964  | 0.425 |  0.640  
+Mean-shift  |0.009  | 0.257 | 0.048 
+Spectral clustering  |0.768  | 0.874 | 0.819 
+Ward hierarchical clustering  |0.239  | 0.908 |0.466 
+Agglomerative clustering  |0.239  | 0.908 |0.466 
+DBSCAN  |0.498  |  0.477 | 0.519 
+Gaussian mixtures |0.863  | 0.584 | 0.710   
 
-算法  |Homogeneity  | NMI  | Completeness
+数据集二  |Homogeneity  | NMI  | Completeness
 ---- |---- | ----- | ------ 
-K-MEANS  |0.0.485  | 0.498 | 0.511 
-Affinity Propagation  | 0.885  | 单元格内容 | 单元格内容 
-Mean-shift  |单元格内容  | 单元格内容 | 单元格内容 
-Spectral clustering  |单元格内容  | 单元格内容 | 单元格内容 
-Ward hierarchical clustering  |单元格内容  | 单元格内容 | 单元格内容 
-Agglomerative clustering  |单元格内容  | 单元格内容 | 单元格内容 
-DBSCAN  |单元格内容  | 单元格内容 | 单元格内容 
-DBSCAN  |单元格内容  | 单元格内容 | 单元格内容 
+K-MEANS  |0.0.485  | 0.511 | 0.498
+Affinity Propagation  | 0.885  | 0.191 | 0.411 
+Mean-shift  |0.391  | 0.786 | 0.786 
+Spectral clustering  |0.354  | 0.252| 0.299 
+Ward hierarchical clustering  |0.458  | 0.303 | 0.373 
+Agglomerative clustering  |0.458  |  0.303 | 0.373 
+DBSCAN  |0.047  | 0.176 | 0.090 
+DBSCAN  |0.047  |  0.176 | 0.090 
                 
 **1、K-MEANS**  
 
@@ -125,11 +125,11 @@ Normalized Mutual Information:0.819
 
 (B)使用Spectral clustering进行训练，参数使用affinity="nearest_neighbors",所得结果为： 
 
-Homogeneity: 0.458  
+Homogeneity: 0.354  
 
-Completeness: 0.303  
+Completeness:0.252  
 
-Normalized Mutual Information: 0.373  
+Normalized Mutual Information: 0.299  
 
 
 **5、Ward hierarchical clustering**  
@@ -187,7 +187,7 @@ Normalized Mutual Information: 0.498
 
 Completeness: 0.477  
 
- 0.519  
+Normalized Mutual Information：0.519  
 
 (B)将数据集降维后，使用DBSCAN进行训练，参数使用eps=0.05, min_samples=2所得结果为：  
 
@@ -195,7 +195,7 @@ Homogeneity: 0.047
 
 Completeness: 0.176  
 
-Homogeneity: 0.090  
+Normalized Mutual Information: 0.090  
 
 
 **8、Gaussian mixtures**  
@@ -217,7 +217,7 @@ Homogeneity: 0.047
 
 Completeness: 0.176  
 
-Homogeneity: 0.090  
+Normalized Mutual Informationy: 0.090  
 
 实验过程以及实验结果
 ---------
