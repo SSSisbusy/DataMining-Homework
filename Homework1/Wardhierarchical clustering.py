@@ -29,5 +29,6 @@ AgglomerativeClustering(affinity='euclidean', compute_full_tree='auto',
 labels = wh.labels_
 
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels_true, labels))
-print("Normalized Mutual Information: %0.3f" % metrics.normalized_mutual_info_score(labels_true, labels))
 print("Completeness: %0.3f" % metrics.completeness_score(labels_true, labels))
+print("Normalized Mutual Information: %0.3f" % metrics.normalized_mutual_info_score(labels_true, labels))
+
