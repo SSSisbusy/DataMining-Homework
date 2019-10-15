@@ -25,22 +25,29 @@ IDE：pycharm
 实验过程以及实验结果
 ---------
 首先将结果进行整理，得下表所示，接着按照各个算法展示参数设计。
-<com.smartown.tableview.library.TableView
-    android:id="@+id/table"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:layout_margin="8dp"
-    app:dividerColor="#e1e1e1"
-    app:dividerWidth="1px"
-    app:headerColor="#00ffffff"
-    app:headerTextColor="#111111"
-    app:headerTextSize="10dp"
-    app:rowHeight="36dp"
-    app:textColor="#999999"
-    app:textSize="10dp"
-    app:unitColumnWidth="0dp" />
 
+算法  |Homogeneity  | Completeness  | NMI
+---- |---- | ----- | ------ 
+K-MEANS  |0.602  | 0.626 | 0.650 
+Affinity Propagation  | 0.964  | 0.640 | 0.425  
+Mean-shift  |单元格内容  | 单元格内容 | 单元格内容 
+Spectral clustering  |单元格内容  | 单元格内容 | 单元格内容 
+Ward hierarchical clustering  |单元格内容  | 单元格内容 | 单元格内容 
+Agglomerative clustering  |单元格内容  | 单元格内容 | 单元格内容 
+DBSCAN  |单元格内容  | 单元格内容 | 单元格内容 
+DBSCAN  |单元格内容  | 单元格内容 | 单元格内容   
+
+算法  |Homogeneity  | NMI  | Completeness
+---- |---- | ----- | ------ 
+K-MEANS  |0.0.485  | 0.498 | 0.511 
+Affinity Propagation  | 0.885  | 单元格内容 | 单元格内容 
+Mean-shift  |单元格内容  | 单元格内容 | 单元格内容 
+Spectral clustering  |单元格内容  | 单元格内容 | 单元格内容 
+Ward hierarchical clustering  |单元格内容  | 单元格内容 | 单元格内容 
+Agglomerative clustering  |单元格内容  | 单元格内容 | 单元格内容 
+DBSCAN  |单元格内容  | 单元格内容 | 单元格内容 
+DBSCAN  |单元格内容  | 单元格内容 | 单元格内容 
+                
 **1、K-MEANS**  
 
 (A)获取数据集得到标签，使用k-means算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
@@ -49,19 +56,18 @@ IDE：pycharm
 
 Homogeneity: 0.602  
 
-Normalized Mutual Information: 0.626  
-
 Completeness: 0.650  
+
+Normalized Mutual Information: 0.626   
 
 (B)使用K-Means进行训练，部分参数设置为n_clusters=true_k, init='k-means++', n_init=1,所得结果为  
 
 Homogeneity: 0.485  
 
-Normalized Mutual Information: 0.498    
-
 Completeness: 0.511  
 
- 
+Normalized Mutual Information: 0.498      
+
 **2、Affinity Propagation**  
 
 (A)获取数据集得到标签，使用Affinity Propagation算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
@@ -70,11 +76,10 @@ Completeness: 0.511
 
 Homogeneity: 0.964    
 
-Normalized Mutual Information: 0.640    
+Completeness: 0.425  
 
-Completeness: 0.425    
-
-
+Normalized Mutual Information: 0.640   
+ 
 (B)使用Affinity Propagation进行训练，参数使用Affinity Propagation算法的默认参数,所得结果为：
 
 Homogeneity: 0.885  
@@ -91,10 +96,9 @@ Normalized Mutual Information: 0.411
 
 Homogeneity: 0.009  
 
-Normalized Mutual Information: 0.048  
-
 Completeness: 0.257  
 
+Normalized Mutual Information: 0.048    
 
 (B)使用Mean-shift进行训练，参数使用部分参数为bandwidth=bandwidth, bin_seeding=True,  
 
@@ -136,10 +140,9 @@ Normalized Mutual Information: 0.373
 
 Homogeneity: 0.239  
 
-Normalized Mutual Information: 0.466  
+Completeness: 0.908   
 
-Completeness: 0.908 
-
+Normalized Mutual Information: 0.466    
 
 (B)使用AgglomerativeClustering进行训练，部分参数使用affinity='euclidean', compute_full_tree='auto',  
 
@@ -160,10 +163,9 @@ Normalized Mutual Information: 0.373
 
 Homogeneity: 0.239  
 
-Normalized Mutual Information: 0.466  
+Completeness: 0.908  
 
-Completeness: 0.908 
-
+Normalized Mutual Information: 0.466    
 
 (B)使用AgglomerativeClustering进行训练，部分参数使用affinity='euclidean', compute_full_tree='auto',  
 
@@ -183,10 +185,9 @@ Normalized Mutual Information: 0.373
 
 Normalized Mutual Information: 0.498  
 
-Homogeneity: 0.519  
-
 Completeness: 0.477  
 
+ 0.519  
 
 (B)将数据集降维后，使用DBSCAN进行训练，参数使用eps=0.05, min_samples=2所得结果为：  
 
@@ -194,7 +195,7 @@ Homogeneity: 0.047
 
 Completeness: 0.176  
 
-NMI: 0.090  
+Homogeneity: 0.090  
 
 
 **8、Gaussian mixtures**  
@@ -216,7 +217,7 @@ Homogeneity: 0.047
 
 Completeness: 0.176  
 
-NMI: 0.090  
+Homogeneity: 0.090  
 
 实验过程以及实验结果
 ---------
