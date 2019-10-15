@@ -37,7 +37,7 @@ Agglomerative clustering  |0.239  | 0.908 |0.466
 DBSCAN  |0.498  |  0.477 | 0.519 
 Gaussian mixtures |0.863  | 0.584 | 0.710   
 
-数据集二  |Homogeneity  | NMI  | Completeness
+数据集二  |Homogeneity  | Completeness  | NMI
 ---- |---- | ----- | ------ 
 K-MEANS  |0.0.485  | 0.511 | 0.498
 Affinity Propagation  | 0.885  | 0.191 | 0.411 
