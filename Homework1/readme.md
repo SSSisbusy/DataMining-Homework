@@ -115,7 +115,7 @@ Normalized Mutual Information: 0.373
 
 (A)获取数据集得到标签，使用Ward hierarchical clustering算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
 
-训练时设置的参数为,所得结果为  
+训练时设置的参数默认参数,所得结果为  
 
 Homogeneity: 0.239  
 
@@ -134,6 +134,29 @@ Completeness: 0.303
 
 Normalized Mutual Information: 0.373 
 
+6、Agglomerative clustering  
+
+(A)获取数据集得到标签，使用AgglomerativeClustering算法对数据集进行训练，使用评估函数比较训练前后得到的结果。  
+
+训练时设置的参数默认参数,所得结果为  
+
+
+Homogeneity: 0.239  
+
+Normalized Mutual Information: 0.466  
+
+Completeness: 0.908 
+
+
+(B)使用AgglomerativeClustering进行训练，部分参数使用affinity='euclidean', compute_full_tree='auto',  
+
+connectivity=None,linkage='ward'，所得结果为： 
+
+Homogeneity: 0.458  
+
+Completeness: 0.303  
+
+Normalized Mutual Information: 0.373  
 
 7、DBSCAN 
 
