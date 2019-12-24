@@ -1,39 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
-# 1.赛题分析
-# 论文的增量消歧(Continuous Name Disambiguation)
-# 任务描述：线上系统每天会新增大量的论文，如何准确快速的将论文分配到系统中已有作者档案，这是线上学术系统最亟待解决的问题。所以问题抽象定义为：给定一批新增论文以及系统已有的作者论文集，最终目的是把新增论文分配到正确的作者档案中。
-# 3参考方法：增量消歧任务与冷启动消歧的任务不同，它是基于有一定作者档案的基础，对新增论文进行分配。所以，容易直接想到的方法就是将已有的作者档案与新增论文进行比较，提取合作者，单位机构或者会议期刊之间相似度的传统特征，随后利用svm之类的传统分类器进行分类。
-
-
-# In[ ]:
-
-
-# 2.数据处理
-
-# In[2]:
-
-
-# 2-1.生成训练数据
-
-# In[21]:
-
-
 import json
 import random
 from pyjarowinkler import distance
 import numpy as np
 
-# 训练集中的作者论文信息
 with open("cna_data/train_author.json", "r") as f2:
     author_data = json.load(f2)
-# 作者姓名、ID、论文ID
 
-# 训练集的论文元信息
 with open("cna_data/train_pub.json", "r") as f2:
     pubs_dict = json.load(f2)
 # 论文id title author.name等
@@ -41,7 +16,6 @@ print(len(author_data))
 
 name_train = set()
 
-# 筛选训练集，只取同名作者数大于等于5个的名字作为训练集。
 for name in author_data:
     persons = author_data[name]
     if (len(persons) > 10):
@@ -49,9 +23,7 @@ for name in author_data:
 
 print(len(name_train))
 
-# 采样500个训练例子，一个训练例子包含paper和正例作者以及5个负例作者（正负例比=1：5）
 
-# 记录paper所属作者和名字
 paper2aid2name = {}
 
 for author_name in name_train:
@@ -95,17 +67,6 @@ for paper_id in train_paper_list:
     train_instances.append((pos_ins, neg_ins))
 
 print(len(train_instances))
-
-# In[ ]:
-
-
-# 2-2.生成特征
-# 在这里，我们只提取paper与author之间的coauthor相关的特征:
-
-# In[22]:
-
-
-# 这里定义了俩个生成特征所需的函数
 from pyjarowinkler import distance
 
 
@@ -212,23 +173,12 @@ def process_feature(pos_ins, paper_coauthors):
 
         co_coauthors_ratio_for_author_count = round(coauthor_count / total_author_count, 6)
 
-        # 计算了5维paper与author所有的paper的coauthor相关的特征：
-        #    1. 不重复的coauthor个数
-        #    2. 不重复的coauthor个数 / paper的所有coauthor的个数
-        #    3. 不重复的coauthor个数 / author的所有paper不重复coauthor的个数
-        #    4. coauthor个数（含重复）
-        #    4. coauthor个数（含重复）/ author的所有paper的coauthor的个数（含重复）
         feature_list.extend([coauthor_len, co_coauthors_ratio_for_paper, co_coauthors_ratio_for_author, coauthor_count,
                              co_coauthors_ratio_for_author_count])
 
     #         print(feature_list)
     return feature_list
 
-
-# In[23]:
-
-
-# 生成所有正例以及负例的特征
 from collections import defaultdict
 
 pos_features = []
@@ -276,14 +226,6 @@ for ins in train_instances:
 print(np.array(pos_features).shape)
 print(np.array(neg_features).shape)
 
-# In[ ]:
-
-
-# 3. 利用svm进行训练
-
-# In[26]:
-
-
 from sklearn.svm import SVC
 from sklearn.externals import joblib
 from math import log
@@ -309,13 +251,6 @@ for ins in svm_train_ins:
 
 clf = SVC(probability=True, C=0.5, kernel='linear', decision_function_shape='ovo')
 clf.fit(x_train, y_train)
-
-# In[ ]:
-
-
-# 4.加载处理测试数据
-
-# In[39]:
 
 
 # 训练集中的作者论文信息
@@ -373,9 +308,6 @@ for author_id, author_info in test_author_data.items():
 print(len(new_test_author_data))
 
 
-# In[61]:
-
-
 # test集的特征生成函数，与train类似
 def process_test_feature(pair, new_test_author_data, test_pubs_dict, paper_coauthors):
     feature_list = []
@@ -431,12 +363,6 @@ def process_test_feature(pair, new_test_author_data, test_pubs_dict, paper_coaut
 
         co_coauthors_ratio_for_author_count = round(coauthor_count / total_author_count, 6)
 
-        # 计算了5维paper与author所有的paper的coauthor相关的特征：
-        #    1. 不重复的coauthor个数
-        #    2. 不重复的coauthor个数 / paper的所有coauthor的个数
-        #    3. 不重复的coauthor个数 / author的所有paper不重复coauthor的个数
-        #    4. coauthor个数（含重复）
-        #    4. coauthor个数（含重复）/ author的所有paper的coauthor的个数（含重复）
         feature_list.extend([coauthor_len, co_coauthors_ratio_for_paper, co_coauthors_ratio_for_author, coauthor_count,
                              co_coauthors_ratio_for_author_count])
 
@@ -497,15 +423,6 @@ print(count)
 assert len(paper2candidates) == len(paper2features)
 print(len(paper2candidates))
 
-# In[48]:
-
-
-# 5. 利用训练好的svm模型去预测
-
-
-# In[68]:
-
-
 result_dict = defaultdict(list)
 for paper_id, ins_feature_list in paper2features.items():
     score_list = []
@@ -521,7 +438,3 @@ for paper_id, ins_feature_list in paper2features.items():
 with open("cna_data/result.json", 'w') as files:
     json.dump(result_dict, files, indent=4)
 
-# In[ ]:
-
-
-# 提交评测后，结果为F1 = 0.63100
